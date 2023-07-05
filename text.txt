@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 Conflict statement
-=======
-Conflict statement
->>>>>>> staging
