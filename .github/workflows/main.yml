@@ -19,9 +19,12 @@ jobs:
         aws-region: eu-north-1
 
     - name: Login to Amazon ECR
-      id: build-image
+      id: login
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build and Push Image
       env:
-        ECR_REGISTRY: ${{ steps.login.ecr.outputs.registry }}
+        ECR_REGISTRY: ${{ steps.login.outputs.ecr.registry }}
         ECR_REPOSITORY: view_repo
         IMAGE_TAG: latest
       run:
