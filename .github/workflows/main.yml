@@ -32,4 +32,9 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Set output environment file
-        run: echo "ECR_REGISTRY=${{ steps.login.outputs.ecr.registry }}" >> $GITHUB_ENV
+        id: output-file
+        run: |
+          echo "ECR_REGISTRY=${{ steps.login.outputs.ecr.registry }}" >> $GITHUB_ENV
+
+      - name: Show output value
+        run: echo "ECR_REGISTRY=${{ steps.output-file.outputs.output }}" 
