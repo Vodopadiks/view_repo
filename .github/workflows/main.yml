@@ -27,14 +27,6 @@ jobs:
           ECR_REGISTRY: ${{ steps.login.outputs.ecr.registry }}
           ECR_REPOSITORY: view_repo
           IMAGE_TAG: latest
-        run:
+        run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-
-      - name: Set output environment file
-        id: output-file
-        run: |
-          echo "ECR_REGISTRY=${{ steps.login.outputs.ecr.registry }}" >> $GITHUB_ENV
-
-      - name: Show output value
-        run: echo "ECR_REGISTRY=${{ steps.output-file.outputs.output }}" 
