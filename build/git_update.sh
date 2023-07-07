@@ -59,7 +59,6 @@ if [ -z "$NEEDS_TAG" ]; then
     echo "Tagged with $NEW_TAG"
     git tag $NEW_TAG
     echo "Premission Denied  ???"
-    git remote -v
     git push --tags -u origin $ACCESS_TOKEN
 
     git push -u $ACCESS_TOKEN
