@@ -25,7 +25,7 @@ fi
 
 # replace . with  space 
 CURRENT_VERSION_PARTS=(${CURRENT_VERSION//./ })
-echo "CURRENT_VERSION: $CURRENT_VERSION"
+
 # get number parts
 VNUM1=${CURRENT_VERSION_PARTS[0]}
 VNUM2=${CURRENT_VERSION_PARTS[1]}
@@ -45,6 +45,7 @@ else
     exit 1
 fi
 
+echo "Premission Denied ???"
 NEW_TAG="$VNUM1.$VNUM2.$VNUM3"
 echo "($VERSION) updating $CURRENT_VERSION to $NEW_TAG"
 
