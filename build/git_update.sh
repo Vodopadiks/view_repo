@@ -45,7 +45,6 @@ else
     exit 1
 fi
 
-echo "Premission Denied ???"
 NEW_TAG="$VNUM1.$VNUM2.$VNUM3"
 echo "($VERSION) updating $CURRENT_VERSION to $NEW_TAG"
 
@@ -64,6 +63,7 @@ else
 fi
 
 echo ::set-output name=git-tag::$NEW_TAG
+echo "Premission Denied ???"
 
 exit 0 
 
