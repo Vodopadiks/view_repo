@@ -19,20 +19,13 @@ echo "CURRENT_VERSION: $CURRENT_VERSION"
 if [[ "$CURRENT_VERSION" == "" ]]; then
     echo "CURRENT_VERSION is empty"
     CURRENT_VERSION='v0.1.0'
-    echo "CURRENT_VERSION: $CURRENT_VERSION"
 else
     echo "CURRENT_VERSION: $CURRENT_VERSION"
 fi
 
-# if [[ CURRENT_VERSION == '' ]]
-# then
-#     CURRENT_VERSION='v0.1.0'
-# fi
-# echo "Current version: $CURRENT_VERSION"
-
 # replace . with  space 
 CURRENT_VERSION=(${CURRENT_VERSION//./ })
-
+echo "CURRENT_VERSION: $CURRENT_VERSION"
 # get number parts
 VNUM1=${CURRENT_VERSION_PARTS[0]}
 VNUM2=${CURRENT_VERSION_PARTS[1]}
