@@ -54,6 +54,7 @@ NEEDS_TAG=`git descrobe --contains $GIT_COMMIT 2>/dev/null`
 
 # only tag if no tag already
 if [ -z "$NEEDS_TAG" ]; then
+    export HOME="/home/otsebriy"
     RSA_PRIVATE_KEY="/home/otsebriy/.ssh/ssh_git"
 
     # Start the SSH agent and add the RSA key
