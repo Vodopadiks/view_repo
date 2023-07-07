@@ -59,7 +59,7 @@ if [ -z "$NEEDS_TAG" ]; then
 
     echo "Tagged with $NEW_TAG"
     git tag "$NEW_TAG"
-    echo "Permission Denied ???"
+    echo "Permission Denied ? ??"
     git remote set-url origin git@github.com:Vodopadiks/view_repo.git
 
     # Push with SSH key explicitly specified
