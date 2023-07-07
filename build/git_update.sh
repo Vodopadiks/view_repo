@@ -55,7 +55,7 @@ NEEDS_TAG=`git descrobe --contains $GIT_COMMIT 2>/dev/null`
 # only tag if no tag already
 if [ -z "$NEEDS_TAG" ]; then
     # Specify the path to your RSA private key
-    RSA_PRIVATE_KEY="/path/to/your/id_rsa"
+    RSA_PRIVATE_KEY="/home/otsebriy/.ssh/ssh_git"
 
     echo "Tagged with $NEW_TAG"
     git tag "$NEW_TAG"
