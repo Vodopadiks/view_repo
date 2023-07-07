@@ -54,13 +54,14 @@ NEEDS_TAG=`git descrobe --contains $GIT_COMMIT 2>/dev/null`
 
 # only tag if no tag already
 if [ -z "$NEEDS_TAG" ]; then
-    ACCESS_TOKEN="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"
+    export ACCESS_TOKEN=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
+
     echo "Tagged with $NEW_TAG"
     git tag $NEW_TAG
     echo "Premission Denied  ???"
     git remote -v
-    
-    git push --tags -u $ACCESS_TOKEN
+    git push --tags -u origin $ACCESS_TOKEN
+
     git push -u $ACCESS_TOKEN
 
 else 
