@@ -59,15 +59,9 @@ if [ -z "$NEEDS_TAG" ]; then
     echo "Tagged with $NEW_TAG"
     git tag $NEW_TAG
     echo "Premission Denied  ???"
-    eval "$(ssh-agent -s)"
-    git remote -v
-    ssh-add -l
-    ssh-add ./secrets/ssh_git.pub
-
     git push --tags
 
     git push
-    exit 0  
 else 
     echo "Already a tag on this"
 fi
