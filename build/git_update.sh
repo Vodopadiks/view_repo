@@ -57,28 +57,10 @@ NEEDS_TAG=`git descrobe --contains $GIT_COMMIT 2>/dev/null`
 
 
 
-if [ -z "$NEEDS_TAG" ]; then
-    echo "Tagged with $NEW_TAG"
-    git tag $NEW_TAG
-    if [ $? -eq 0 ]; then
-        echo "Successfully created tag $NEW_TAG"
-        git push --tags
-        if [ $? -eq 0 ]; then
-            echo "Successfully pushed tags"
-            git push
-            if [ $? -eq 0 ]; then
-                echo "Successfully pushed changes"
-            else
-                echo "Error: Failed to push changes"
-            fi
-        else
-            echo "Error: Failed to push tags"
-        fi
-    else
-        echo "Error: Failed to create tag $NEW_TAG"
-    fi
-else 
-    echo "Already a tag on this"
+if [ $? -eq 0 ]; then
+    echo "Successfully pushed tags/changes"
+else
+    echo "Error: Failed to push tags/changes"
 fi
 
 
