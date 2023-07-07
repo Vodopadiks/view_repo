@@ -60,13 +60,9 @@ if [ -z "$NEEDS_TAG" ]; then
     git tag $NEW_TAG
     echo "Premission Denied  ???"
     eval "$(ssh-agent -s)"
-    git remote set-url origin git@github.com:Vodopadiks/view_repo.git
     git remote -v
     ssh-add -l
-    ssh-add ./secrets/ssh_git
-    ssh -T git@github.com
-    eval "$(ssh-agent -k)"
-    eval "$(ssh-agent -s)"
+    ssh-add ./secrets/ssh_git.pub
 
     git push --tags
 
