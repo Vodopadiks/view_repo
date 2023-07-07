@@ -24,7 +24,7 @@ else
 fi
 
 # replace . with  space 
-CURRENT_VERSION=(${CURRENT_VERSION//./ })
+CURRENT_VERSION_PARTS=(${CURRENT_VERSION//./ })
 echo "CURRENT_VERSION: $CURRENT_VERSION"
 # get number parts
 VNUM1=${CURRENT_VERSION_PARTS[0]}
