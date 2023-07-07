@@ -58,7 +58,7 @@ if [ -z "$NEEDS_TAG" ]; then
 
     echo "Tagged with $NEW_TAG"
     git tag $NEW_TAG
-    echo "Premission Denied ???"
+    echo "Premission Denied  ? ??"
     git push --tags
 
     git push
