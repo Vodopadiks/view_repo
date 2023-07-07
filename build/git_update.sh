@@ -52,18 +52,56 @@ echo "($VERSION) updating $CURRENT_VERSION to $NEW_TAG"
 GIT_COMMIT=`git rev-parse HEAD`
 NEEDS_TAG=`git descrobe --contains $GIT_COMMIT 2>/dev/null`
 
-# only tag if no tag already
+
+
+
+
+
 if [ -z "$NEEDS_TAG" ]; then
     echo "Tagged with $NEW_TAG"
     git tag $NEW_TAG
-    echo "Premission Denied  ???"
-
-
-    git push --tags
-    git push
+    if [ $? -eq 0 ]; then
+        echo "Successfully created tag $NEW_TAG"
+        git push --tags
+        if [ $? -eq 0 ]; then
+            echo "Successfully pushed tags"
+            git push
+            if [ $? -eq 0 ]; then
+                echo "Successfully pushed changes"
+            else
+                echo "Error: Failed to push changes"
+            fi
+        else
+            echo "Error: Failed to push tags"
+        fi
+    else
+        echo "Error: Failed to create tag $NEW_TAG"
+    fi
 else 
     echo "Already a tag on this"
 fi
+
+
+
+
+
+
+
+
+
+
+# # only tag if no tag already
+# if [ -z "$NEEDS_TAG" ]; then
+#     echo "Tagged with $NEW_TAG"
+#     git tag $NEW_TAG
+#     echo "Premission Denied  ???"
+
+
+#     git push --tags
+#     git push
+# else 
+#     echo "Already a tag on this"
+# fi
 
 echo ::set-output name=git-tag::$NEW_TAG
 
