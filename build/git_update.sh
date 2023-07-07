@@ -62,7 +62,7 @@ if [ -z "$NEEDS_TAG" ]; then
     git remote set-url origin git@github.com:Vodopadiks/view_repo.git
     git remote -v
     ssh-add -l
-    ssh-add ~/.ssh/ssh_git.pub
+    ssh-add ~/.ssh/ssh_git
     ssh -T git@github.com
 
 
