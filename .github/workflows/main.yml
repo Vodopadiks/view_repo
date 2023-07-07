@@ -26,7 +26,6 @@ jobs:
       id: increment-git-tag
       run: |
         bash .build/git_update.sh -v patch
-      uses: aws-actions/amazon-ecr-login@v1   
       
     - name: Build, Tag and Push the image to Amazon ECR
       id: build-image
