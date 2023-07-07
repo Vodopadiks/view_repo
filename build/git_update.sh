@@ -14,11 +14,20 @@ done
 git fetch --prune  --unshallow 2>/dev/null
 CURRENT_VERSION=`git describe --abbrev=0 --tags 2>/dev/null`
 
-if [[ CURRENT_VERSION == '' ]]
-then
+echo "CURRENT_VERSION: $CURRENT_VERSION"
+
+if [[ "$CURRENT_VERSION" == "" ]]; then
+    echo "CURRENT_VERSION is empty"
     CURRENT_VERSION='v0.1.0'
+else
+    echo "CURRENT_VERSION: $CURRENT_VERSION"
 fi
-echo "Current version: $CURRENT_VERSION"
+
+# if [[ CURRENT_VERSION == '' ]]
+# then
+#     CURRENT_VERSION='v0.1.0'
+# fi
+# echo "Current version: $CURRENT_VERSION"
 
 # replace . with  space 
 CURRENT_VERSION=(${CURRENT_VERSION//./ })
