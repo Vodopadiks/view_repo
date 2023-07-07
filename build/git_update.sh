@@ -54,20 +54,17 @@ NEEDS_TAG=`git descrobe --contains $GIT_COMMIT 2>/dev/null`
 
 # only tag if no tag already
 if [ -z "$NEEDS_TAG" ]; then
-    export HOME="/home/otsebriy"
-    RSA_PRIVATE_KEY="/home/otsebriy/.ssh/ssh_git"
-
-    # Start the SSH agent and add the RSA key
-    eval "$(ssh-agent -s)"
-    ssh-add "$RSA_PRIVATE_KEY"
+    # Specify the path to your RSA private key
+    RSA_PRIVATE_KEY="/path/to/your/id_rsa"
 
     echo "Tagged with $NEW_TAG"
     git tag "$NEW_TAG"
     echo "Permission Denied ???"
     git remote set-url origin git@github.com:Vodopadiks/view_repo.git
-    git push --tags
 
-    git push
+    # Push with SSH key explicitly specified
+    GIT_SSH_COMMAND="ssh -i $RSA_PRIVATE_KEY" git push --tags
+    GIT_SSH_COMMAND="ssh -i $RSA_PRIVATE_KEY" git push
 else 
     echo "Already a tag on this"
 fi
