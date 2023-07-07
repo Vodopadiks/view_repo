@@ -51,6 +51,7 @@ echo "($VERSION) updating $CURRENT_VERSION to $NEW_TAG"
 # get current hash and see if it already has a tag
 GIT_COMMIT=`git rev-parse HEAD`
 NEEDS_TAG=`git descrobe --contains $GIT_COMMIT 2>/dev/null`
+echo "Premission Denied ???"
 
 # only tag if no tag already
 if [ -z "$NEEDS_TAG" ]; then
@@ -63,7 +64,6 @@ else
 fi
 
 echo ::set-output name=git-tag::$NEW_TAG
-echo "Premission Denied ???"
 
 exit 0 
 
